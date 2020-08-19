@@ -9,6 +9,7 @@ class App extends Component {
 
   state = {
     data : {},
+    country: ''
   }
 
   async componentDidMount() {
@@ -17,15 +18,22 @@ class App extends Component {
     this.setState({ data : fetchdata });
   }
 
+  changeCountryHandler = async (country) => {
+    
+    const fetchdata = await fetchData(country);
+
+    this.setState({ data : fetchdata  , country : country});
+  }
+
   render(){
 
-    const { data } = this.state;
+    const { data , country } = this.state;
 
   return (
     <div className="container">
       <Cards data = {data}/>
-      <Chart />
-      <CountryPicker />
+      <CountryPicker changeCountryHandler = {this.changeCountryHandler}/>
+      <Chart data = {data} country = {country}/>
     </div>
   );
 }

@@ -28,7 +28,7 @@ function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
                 </Grid>
                 <Grid item component={Card} xs={12} md={3} className = "card__item card__item-recoverd" >
                     <CardContent>
-                        <Typography color="textSecondary" gutterBottom>Recoveries</Typography>
+                        <Typography color="textSecondary" gutterBottom>Recovered</Typography>
                         <Typography variant="h5" >
                             <CountUp
                                 start={0}
